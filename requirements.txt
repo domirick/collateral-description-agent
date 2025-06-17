@@ -1,0 +1,5 @@
+smolagents
+smolagents[toolkit, telemetry]
+pydantic
+python-dotenv
+openai
