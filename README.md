@@ -1,5 +1,8 @@
-# Collateral Description Agent PoC
-This is just a PoC, the final version could be different in architecture and technology.
+# Collateral Description Agent
+Agentic solution for describing an asset from images, and estimate it's value.
+It has 2 version: ([architectures below](#architecture))
+- v1: More linear, less agentic solution
+- v2: More agentic solution
 
 ## Quickstart
 
@@ -10,9 +13,9 @@ This is just a PoC, the final version could be different in architecture and tec
 ### Python
 4. (Optional, but recommended) Create a [virtual environment](https://docs.python.org/3/library/venv.html) and activate it
 5. Install required packages: `pip install -r requirements.txt`
-6. Place the images of a single asset to the data folder
+6. Place the images of a single asset to the `data` folder
 7. Start telemetry service with `python -m phoenix.server.main serve`
-8. Start the app with `python app/app.py loadenv` (loadenv flag is for loading the environment variables)
+8. Start the app with `python app-v2/app.py loadenv` (you can change the version) (loadenv flag is for loading the environment variables)
 9. You can check the telemetry and follow the calls on http://localhost:6006
 
 ### Docker
@@ -25,12 +28,19 @@ docker run -p 6006:6006 --env-file .env \
 ```
 6. Navigate to `https://localhost:6006` on your browser
 
+> [!TIP]
+> Dockerfile is prepared for version 2, but you can change the version simple rewriting it in the `Dockerfile` and `start.sh`
+
 ## Env vars
 
 | Variable name           | Description                                                                                                                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | OPENAI_API_KEY          | OpenAI API key                                                                            |
+| TAVILY_API_KEY          | Tavily API key                                                                            |
 
 
 ## Architecture
-![architecture diagram of the application](documentation/architecture.png "Architecture")
+### V1
+![architecture diagram of the application - version 1](documentation/architecture-v1.jpg "Architecture v1")
+### V2
+![architecture diagram of the application - version 2](documentation/architecture-v2.jpg "Architecture v2")

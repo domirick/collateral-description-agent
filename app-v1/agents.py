@@ -1,9 +1,7 @@
 import sys
 
-from smolagents import CodeAgent, OpenAIServerModel
+from smolagents import CodeAgent, OpenAIServerModel, ToolCallingAgent
 from smolagents import WebSearchTool, VisitWebpageTool, FinalAnswerTool
-
-import tools
 
 # Load environment variables if specified
 if len(sys.argv) > 1 and sys.argv[1] == "load_env":
@@ -21,8 +19,7 @@ light_model = OpenAIServerModel(model_id="gpt-4.1-mini")
 reasoning_model = OpenAIServerModel(model_id="o4-mini")
 
 # Agents
-descriptor_agent = CodeAgent(
-    #tools=[tools.describe_image],
+image_descriptor_agent = ToolCallingAgent(
     tools=[],
     model=light_model,
 )
@@ -38,19 +35,9 @@ web_search_agent = CodeAgent(
     model=light_model,
 )
 
-expert = CodeAgent(
+information_aggregator = CodeAgent(
     tools=[],
-    model=light_model,
-)
-
-aggregator = CodeAgent(
-    tools=[],
-    model=light_model,
-)
-
-final_estimator = CodeAgent(
-    tools=[],
-    model=light_model,
+    model=heavy_model,
 )
 
 manager_agent = CodeAgent(

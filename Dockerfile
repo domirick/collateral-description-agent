@@ -5,9 +5,9 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir --upgrade -r /tmp/requirements.txt
 RUN apt-get update && apt-get install python3-opencv  -y
 
-WORKDIR /app
+WORKDIR /app-v2
 
-COPY ./app /app
+COPY ./app-v2 /app-v2
 WORKDIR /
 
 ADD start.sh /
