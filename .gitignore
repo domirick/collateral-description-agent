@@ -183,3 +183,6 @@ data/*
 
 # Few-shot data
 annotations*.md
+
+# Image descriptions
+descriptions.txt

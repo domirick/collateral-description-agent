@@ -16,8 +16,6 @@ files = os.listdir("data") # TODO: set to arg
 with open("annotations_trimmed.md", "r") as f:
     annotations_md = f.read()
 
-img_descriptions = []
-
 # Start agentic workflow
 agents.manager_agent.run(
     "You are value estimator agent. You should describe an image (like examples found bellow), and estimate its value. You can also run the research_manager agent for online research and description_manager agent for describing images.\n"

@@ -24,12 +24,12 @@ reasoning_model = OpenAIServerModel(model_id="o4-mini")
 # Descriptors
 
 # This agent is deprecated, use tools.describe_image function instead
-image_descriptor_agent = ToolCallingAgent(
-    name="image_descriptor_agent",
-    description="This agent describes the asset in a single image, including its condition and accessories by getting the image's ID.",
-    #tools=[tools.get_image_by_id],
-    model=light_model,
-)
+#image_descriptor_agent = ToolCallingAgent(
+#    name="image_descriptor_agent",
+#    description="This agent describes the asset in a single image, including its condition and accessories by getting the image's ID.",
+#    tools=[tools.get_image_by_id],
+#    model=light_model,
+#)
 
 information_aggregator = CodeAgent(
     name="information_aggregator",
